@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
 
 class Omegas extends Component {
+  state = {micros: []};
+
+  componentDidMount() {
+    fetch('/users')
+      .then(res => res.json())
+      .then(micros => {
+        this.setState({
+          micros: micros.omegas
+        });
+      })
+  }
 
   renderData() {
-    const omegas = this.props.data;
+    const omegas = this.state.micros;
     return omegas.map((micro, index) => {
       return (
         <option value={micro.value} key={index}>{micro.name}</option>

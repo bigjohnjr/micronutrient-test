@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
 
 class AminoAcids extends Component {
+  state = {micros: []};
+
+  componentDidMount() {
+    fetch('/users')
+      .then(res => res.json())
+      .then(micros => {
+        this.setState({
+          micros: micros.aminoacids
+        });
+      })
+  }
 
   renderData() {
-    const aminoacids = this.props.data;
+    const aminoacids = this.state.micros;
     return aminoacids.map((micro, index) => {
       return (
         <option value={micro.value} key={index}>{micro.name}</option>

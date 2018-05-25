@@ -6,6 +6,7 @@ import Antioxidants from './menuitems/Antioxidants';
 import Omegas from './menuitems/Omegas';
 
 class MenuItems extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -26,19 +27,19 @@ class MenuItems extends Component {
     return (
       <ul className="menuitems">
         <li>
-          <Vitamins data={this.props.users} />
+          <Vitamins />
         </li>
         <li>
-          <Minerals data={this.props.users} />
+          <Minerals />
         </li>
         <li>
-          <AminoAcids data={this.props.users}/>
+          <AminoAcids />
         </li>
         <li>
-          <Antioxidants data={this.props.users}/>
+          <Antioxidants />
         </li>
         <li>
-          <Omegas data={this.props.users}/>
+          <Omegas />
         </li>
       </ul>
     )

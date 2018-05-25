@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
 
 class Minerals extends Component {
+  state = {micros: []};
+
+  componentDidMount() {
+    fetch('/users')
+      .then(res => res.json())
+      .then(micros => {
+        this.setState({
+          micros: micros.minerals
+        });
+      })
+  }
 
   renderData() {
-    const minerals = this.props.data;
+    const minerals = this.state.micros;
     return minerals.map((micro, index) => {
       return (
         <option value={micro.value} key={index}>{micro.name}</option>

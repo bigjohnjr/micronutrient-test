@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
 
 class Vitamins extends Component {
+  state = {micros: []};
+
+  componentDidMount() {
+    fetch('/users')
+      .then(res => res.json())
+      .then(micros => {
+        this.setState({
+          micros: micros.vitamins
+        });
+      })
+  }
 
   renderData() {
-    const vitamins = this.props.data;
-    console.log('hi', vitamins)
+    const vitamins = this.state.micros;
     return vitamins.map((micro, index) => {
       return (
         <option value={micro.value} key={index}>{micro.name}</option>
@@ -13,6 +23,7 @@ class Vitamins extends Component {
   }
 
   render() {
+
     return (
       <form>
         <label className="nutrient-label">
