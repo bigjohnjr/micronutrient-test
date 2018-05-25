@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class AminoAcids extends Component {
 
   renderData() {
-    const { aminoacids } = this.props.data;
+    const aminoacids = this.props.data;
     return aminoacids.map((micro, index) => {
       return (
         <option value={micro.value} key={index}>{micro.name}</option>

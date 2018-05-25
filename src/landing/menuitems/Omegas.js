@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Omegas extends Component {
 
   renderData() {
-    const { omegas } = this.props.data;
+    const omegas = this.props.data;
     return omegas.map((micro, index) => {
       return (
         <option value={micro.value} key={index}>{micro.name}</option>

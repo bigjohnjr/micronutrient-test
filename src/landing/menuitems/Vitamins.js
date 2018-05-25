@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
 class Vitamins extends Component {
-  
+
   renderData() {
-    const { vitamins } = this.props.data;
+    const vitamins = this.props.data;
+    console.log('hi', vitamins)
     return vitamins.map((micro, index) => {
       return (
         <option value={micro.value} key={index}>{micro.name}</option>

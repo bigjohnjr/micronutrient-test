@@ -4,14 +4,12 @@ import Minerals from './menuitems/Minerals';
 import AminoAcids from './menuitems/AminoAcids';
 import Antioxidants from './menuitems/Antioxidants';
 import Omegas from './menuitems/Omegas';
-import data from '../data.json';
 
 class MenuItems extends Component {
   constructor(props) {
     super(props);
     this.state = {
       value: '',
-      data: data
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -28,19 +26,19 @@ class MenuItems extends Component {
     return (
       <ul className="menuitems">
         <li>
-          <Vitamins data={this.state.data} />
+          <Vitamins data={this.props.users} />
         </li>
         <li>
-          <Minerals data={this.state.data} />
+          <Minerals data={this.props.users} />
         </li>
         <li>
-          <AminoAcids data={this.state.data}/>
+          <AminoAcids data={this.props.users}/>
         </li>
         <li>
-          <Antioxidants data={this.state.data}/>
+          <Antioxidants data={this.props.users}/>
         </li>
         <li>
-          <Omegas data={this.state.data}/>
+          <Omegas data={this.props.users}/>
         </li>
       </ul>
     )

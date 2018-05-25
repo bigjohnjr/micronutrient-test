@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Minerals extends Component {
 
   renderData() {
-    const { minerals } = this.props.data;
+    const minerals = this.props.data;
     return minerals.map((micro, index) => {
       return (
         <option value={micro.value} key={index}>{micro.name}</option>
