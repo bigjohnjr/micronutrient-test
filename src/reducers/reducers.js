@@ -1,16 +1,28 @@
 import { combineReducers } from 'redux';
 
-const activeResult = (state = null, action) => {
-  switch (action.type) {
-    case 'UPDATE_RESULT':
-      return action.result;
+import {
+  RECEIVE_VITAMINS,
+} from '../actions/actions';
+
+const initialState = {
+  vitamins: [],
+}
+
+function vitaminReducer(state = initialState, action) {
+  switch(action.type) {
+    case RECEIVE_VITAMINS:
+      return {
+        ...state,
+        vitamins: action.payload
+      };
     default:
       return state;
   }
-};
+}
+
 
 const reducers = combineReducers({
-  activeResult,
+  vitamins: vitaminReducer,
 });
 
 export default reducers;
