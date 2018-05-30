@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MenuItems from './MenuItems';
-import Introduction from './Introduction';
+import ResultsView from './ResultsView';
 
 class Home extends Component {
 
@@ -8,7 +8,7 @@ class Home extends Component {
     return (
       <React.Fragment>
         <MenuItems />
-        <Introduction />
+        <ResultsView />
       </React.Fragment>
     )
   }
