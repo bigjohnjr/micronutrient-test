@@ -29,7 +29,7 @@ class MenuItems extends Component {
         <li>
           <Vitamins />
         </li>
-        {/* <li>
+        <li>
           <Minerals />
         </li>
         <li>
@@ -40,7 +40,7 @@ class MenuItems extends Component {
         </li>
         <li>
           <Omegas />
-        </li> */}
+        </li>
       </ul>
     )
   }

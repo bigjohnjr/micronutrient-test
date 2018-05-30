@@ -7,16 +7,6 @@ class Vitamins extends Component {
     this.props.fetchMicros();
   }
 
-  // componentDidMount() {
-  //   fetch('/users')
-  //     .then(res => res.json())
-  //     .then(micros => {
-  //       this.setState({
-  //         micros: micros.vitamins
-  //       });
-  //     })
-  // }
-
   renderData() {
     const { vitamins } = this.props.vitamins;
     return vitamins.map((micro, index) => {
