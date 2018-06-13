@@ -8,7 +8,7 @@ class Antioxidants extends Component {
   }
 
   renderData() {
-    const { antioxidants } = this.props.antioxidants;
+    const { antioxidants } = this.props;
     return antioxidants.map((micro, index) => {
       return (
         <option value={micro.value} key={index}>{micro.name}</option>
@@ -24,7 +24,7 @@ class Antioxidants extends Component {
         </label>
         <select value={this.props.value} onChange={this.handleChange}>
           <option value="" selected>--Antioxidants--</option>
-          {this.renderData()}
+          {this.props.antioxidants && this.renderData()}
         </select>
       </form>
     )
@@ -33,7 +33,7 @@ class Antioxidants extends Component {
 
 export default connect(
   state => ({
-    antioxidants: state.antioxidants
+    antioxidants: state.micros.antioxidants
   }),
   {
     fetchMicros

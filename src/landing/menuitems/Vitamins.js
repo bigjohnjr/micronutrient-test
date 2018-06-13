@@ -8,7 +8,7 @@ class Vitamins extends Component {
   }
 
   renderData() {
-    const { vitamins } = this.props.vitamins;
+    const { vitamins } = this.props;
     return vitamins.map((micro, index) => {
       return (
         <option value={micro.value} key={index}>{micro.name}</option>
@@ -24,7 +24,7 @@ class Vitamins extends Component {
         </label>
         <select value={this.props.value} onChange={this.handleChange}>
           <option value="" selected>--Vitamins--</option>
-          {this.renderData()}
+          {this.props.vitamins && this.renderData()}
         </select>
       </form>
     )
@@ -33,7 +33,7 @@ class Vitamins extends Component {
 
 export default connect(
   state => ({
-    vitamins: state.vitamins
+    vitamins: state.micros.vitamins
   }),
   {
     fetchMicros

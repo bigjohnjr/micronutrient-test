@@ -23,21 +23,25 @@ class ResultsView extends React.Component {
         value: value
     });
   }
-  
+
   render() {
     return (
-      <div>
-        <Introduction />
+      <React.Fragment>
+        {this.props.activeResultView === 'Intro' && <Introduction />}
         {/* <VitaminResults />
         <MineralResults />
         */}
-        <AminoResults />
+        {this.props.activeResultView === 'aminoResults' && <AminoResults />}
+        {this.props.activeResultView === 'antioxResults' && <AntioxResults />}
         {/*
-        <AntioxResults />
         <OmegaResults /> */}
-      </div>
+      </React.Fragment>
     )
   }
 }
 
-export default ResultsView;
+export default connect(
+  state => ({
+    activeResultView: state.activeResultView,
+  }),
+)(ResultsView);

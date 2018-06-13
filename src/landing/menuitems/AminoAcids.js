@@ -8,7 +8,7 @@ class AminoAcids extends Component {
   }
 
   renderData() {
-    const { aminos } = this.props.aminos;
+    const { aminos } = this.props;
     return aminos.map((micro, index) => {
       return (
         <option value={micro.value} key={index}>{micro.name}</option>
@@ -24,7 +24,7 @@ class AminoAcids extends Component {
         </label>
         <select value={this.props.value} onChange={this.handleChange}>
           <option value="" selected>--Amino Acids--</option>
-          {this.renderData()}
+          {this.props.aminos && this.renderData()}
         </select>
       </form>
     )
@@ -33,7 +33,7 @@ class AminoAcids extends Component {
 
 export default connect(
   state => ({
-    aminos: state.aminos
+    aminos: state.micros.aminoacids
   }),
   {
     fetchMicros

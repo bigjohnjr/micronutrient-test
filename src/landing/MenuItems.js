@@ -7,22 +7,6 @@ import Omegas from './menuitems/Omegas';
 
 class MenuItems extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: '',
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(e) {
-    const { value } = e.target;
-    this.setState({
-        value: value
-    });
-  }
-
   render() {
     return (
       <ul className="menuitems">
@@ -32,7 +16,7 @@ class MenuItems extends Component {
         <li>
           <Minerals />
         </li>
-        <li>
+         <li>
           <AminoAcids />
         </li>
         <li>

@@ -1,85 +1,34 @@
 import { combineReducers } from 'redux';
 
 import {
-  RECEIVE_VITAMINS, RECEIVE_MINERALS,
-  RECEIVE_AMINOS, RECEIVE_ANTIOXIDANTS,
-  RECEIVE_OMEGAS
+  RECEIVE_VITAMINS
 } from '../actions/actions';
 
-const initialState = {
-  vitamins: [],
-  minerals: [],
-  aminos: [],
-  antioxidants: [],
-  omegas: [],
-}
-
-function vitaminReducer(state = initialState, action) {
+function micros(state = [], action) {
   switch(action.type) {
     case RECEIVE_VITAMINS:
-      return {
-        ...state,
-        vitamins: action.payload
-      };
+    const vitaminObject = {}
+    Object.keys(action.payload).forEach(vitamin => {
+      vitaminObject[vitamin] = action.payload[vitamin]
+    })
+      return vitaminObject
     default:
       return state;
   }
 }
 
-function mineralReducer(state = initialState, action) {
-  switch(action.type) {
-    case RECEIVE_MINERALS:
-      return {
-        ...state,
-        minerals: action.payload
-      };
+const activeResultView = (state = 'Intro', action) => {
+  switch (action.type) {
+    case 'UPDATE_RESULT_VIEW':
+      return action.view;
     default:
       return state;
   }
-}
-
-function aminosReducer(state = initialState, action) {
-  switch(action.type) {
-    case RECEIVE_AMINOS:
-      return {
-        ...state,
-        aminos: action.payload
-      };
-    default:
-      return state;
-  }
-}
-
-function antioxidantsReducer(state = initialState, action) {
-  switch(action.type) {
-    case RECEIVE_ANTIOXIDANTS:
-      return {
-        ...state,
-        antioxidants: action.payload
-      };
-    default:
-      return state;
-  }
-}
-
-function omegasReducer(state = initialState, action) {
-  switch(action.type) {
-    case RECEIVE_OMEGAS:
-      return {
-        ...state,
-        omegas: action.payload
-      };
-    default:
-      return state;
-  }
-}
+};
 
 const reducers = combineReducers({
-  vitamins: vitaminReducer,
-  minerals: mineralReducer,
-  aminos: aminosReducer,
-  antioxidants: antioxidantsReducer,
-  omegas: omegasReducer,
+  micros,
+  activeResultView,
 });
 
 export default reducers;

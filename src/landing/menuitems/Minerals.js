@@ -8,7 +8,7 @@ class Minerals extends Component {
   }
 
   renderData() {
-    const { minerals } = this.props.minerals;
+    const { minerals } = this.props;
     return minerals.map((micro, index) => {
       return (
         <option value={micro.value} key={index}>{micro.name}</option>
@@ -24,7 +24,7 @@ class Minerals extends Component {
         </label>
         <select value={this.props.value} onChange={this.handleChange}>
           <option value="" selected>--Minerals--</option>
-          {this.renderData()}
+          {this.props.minerals && this.renderData()}
         </select>
       </form>
     )
@@ -33,7 +33,7 @@ class Minerals extends Component {
 
 export default connect(
   state => ({
-    minerals: state.minerals
+    minerals: state.micros.minerals
   }),
   {
     fetchMicros

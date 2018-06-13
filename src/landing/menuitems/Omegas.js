@@ -8,7 +8,7 @@ class Omegas extends Component {
   }
 
   renderData() {
-    const { omegas } = this.props.omegas;
+    const { omegas } = this.props;
     return omegas.map((micro, index) => {
       return (
         <option value={micro.value} key={index}>{micro.name}</option>
@@ -24,7 +24,7 @@ class Omegas extends Component {
         </label>
         <select value={this.props.value} onChange={this.handleChange}>
           <option value="" selected>--Omegas--</option>
-          {this.renderData()}
+          {this.props.omegas && this.renderData()}
         </select>
       </form>
     )
@@ -33,7 +33,7 @@ class Omegas extends Component {
 
 export default connect(
   state => ({
-    omegas: state.omegas
+    omegas: state.micros.omegas
   }),
   {
     fetchMicros

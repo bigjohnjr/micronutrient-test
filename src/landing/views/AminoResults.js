@@ -9,24 +9,45 @@ class AminoResults extends React.Component {
   }
 
   renderData() {
-    const { aminos } = this.props.aminos;
-    return aminos.map((micro) => {
+    const { aminos } = this.props;
+    return aminos.map((micro, i) => {
       return (
-        <Table>
+        <Table key={i}>
           <thead>
             <tr>
+              <th></th>
               <th>Name</th>
-              <th>Current</th>
-              <th>Prev</th>
-              <th>Ref</th>
+              <th colSpan={3}>Serum</th>
+              <th colSpan={3}>WBC</th>
+              <th colSpan={3}>RBC</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th scope="row">{micro.name}</th>
+              <th scope="row">1</th>
+              <th>{micro.name}</th>
+              <th>Current</th>
+              <th>Prev</th>
+              <th>Ref</th>
+              <th>Current</th>
+              <th>Prev</th>
+              <th>Ref</th>
+              <th>Current</th>
+              <th>Prev</th>
+              <th>Ref</th>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
               <td>{micro.serum.current}</td>
               <td>{micro.serum.prev}</td>
               <td>{micro.serum.ref}</td>
+              <td>{micro.wbc.current}</td>
+              <td>{micro.wbc.prev}</td>
+              <td>{micro.wbc.ref}</td>
+              <td>{micro.rbc.current}</td>
+              <td>{micro.rbc.prev}</td>
+              <td>{micro.rbc.ref}</td>
             </tr>
           </tbody>
         </Table>
@@ -37,7 +58,7 @@ class AminoResults extends React.Component {
   render() {
     return (
       <div>
-        {this.renderData()}
+        {this.props.aminos && this.renderData()}
       </div>
     )
   }
@@ -45,7 +66,7 @@ class AminoResults extends React.Component {
 
 export default connect(
   state => ({
-    aminos: state.aminos
+    aminos: state.micros.aminoacids
   }),
   {
     fetchMicros
