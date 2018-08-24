@@ -9,8 +9,8 @@ class AntioxResults extends React.Component {
   }
 
   renderData() {
-    const { antioxidants } = this.props.antioxidants;
-    return antioxidants.map((micro, i) => {
+    const { aminos } = this.props;
+    return aminos.map((micro, i) => {
       return (
         <Table key={i}>
           <thead>
@@ -58,7 +58,7 @@ class AntioxResults extends React.Component {
   render() {
     return (
       <div>
-        {this.renderData()}
+        {this.props.aminos && this.renderData()}
       </div>
     )
   }
@@ -66,7 +66,7 @@ class AntioxResults extends React.Component {
 
 export default connect(
   state => ({
-    antioxidants: state.antioxidants
+    aminos: state.micros.antioxidants
   }),
   {
     fetchMicros

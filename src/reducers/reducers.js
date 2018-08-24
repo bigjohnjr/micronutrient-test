@@ -17,7 +17,7 @@ function micros(state = [], action) {
   }
 }
 
-const activeResultView = (state = 'Intro', action) => {
+const activeResultView = (state = 'antioxResults', action) => {
   switch (action.type) {
     case 'UPDATE_RESULT_VIEW':
       return action.view;

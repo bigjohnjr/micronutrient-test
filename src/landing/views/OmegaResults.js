@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 
-class OmegaResults extends React.Component {
-  render() {
-    return (
-      <div></div>
-    )
-  }
-}
+// class OmegaResults extends React.Component {
+//   render() {
+//     return (
+//       <div></div>
+//     )
+//   }
+// }
 
-export default OmegaResults;
+// export default OmegaResults;

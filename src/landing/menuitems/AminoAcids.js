@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { fetchMicros } from "../../actions/actions";
+import { 
+  fetchMicros,
+  updateActiveResultView, 
+} from "../../actions/actions";
 
 class AminoAcids extends Component {
   componentDidMount() {
@@ -11,7 +14,7 @@ class AminoAcids extends Component {
     const { aminos } = this.props;
     return aminos.map((micro, index) => {
       return (
-        <option value={micro.value} key={index}>{micro.name}</option>
+        <option onClick={() => this.props.updateActiveResultView('aminoResults')} value={micro.value} key={index}>{micro.name}</option>
       )
     })
   }
@@ -35,7 +38,5 @@ export default connect(
   state => ({
     aminos: state.micros.aminoacids
   }),
-  {
-    fetchMicros
-  },
+  { fetchMicros, updateActiveResultView },
 )(AminoAcids);

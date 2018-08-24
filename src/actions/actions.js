@@ -1,12 +1,17 @@
 export function fetchMicros() {
   return dispatch => {
-   return fetch("/users")
-      .then(handleErrors)
-      .then(res => res.json())
-      .then(micros => {
-          dispatch(fetchVitamins(micros));
-        }
-      )};
+   const url = "https://young-sierra-66594.herokuapp.com/users/";
+   return fetch(url, {
+     method: 'GET',
+     mode: 'cors',
+    })
+    .then(handleErrors)
+    .then(res => res.json())
+    .then(micros => {
+        dispatch(fetchVitamins(micros));
+        console.log("micros", micros)
+      }
+    )};
 };
 
 function handleErrors(response) {

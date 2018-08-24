@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 
-class MineralResults extends React.Component {
-  render() {
-    return (
-       <div></div>
-    )
-  }
-}
+// class MineralResults extends React.Component {
+//   render() {
+//     return (
+//        <div></div>
+//     )
+//   }
+// }
 
-export default MineralResults;
+// export default MineralResults;
